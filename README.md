@@ -24,12 +24,13 @@ Additionally, I created a new route table that includes a rule for internet traf
 ![rtb](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/rtb.png)
 
 
+2.  **Security Group:** I created a security group to act as a virtual firewall for the EC2 instance. I opened port 22 for SSH and 8080 so that I can connect to the Nginx docker container from the web browser.
+
+![sg](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/sg.png)
+
 
 2.  **EC2 Instance:** I configured an EC2 instance, which is the virtual server where applications will run.
   *   *Suggestion for a picture: The AWS console showing the EC2 instance running, perhaps with its public IP and instance type.*
-
-3.  **Security Group:** I crafted a security group to act as a virtual firewall, controlling the inbound and outbound traffic to the EC2 instance.
-  *   *Suggestion for a picture: The AWS console view of the security group rules, highlighting allowed ports.*
 
 4.  **Docker Deployment:** I automated the deployment of a Docker container to the EC2 instance.
     *   *Suggestion for a picture: A terminal showing the `docker ps` command output, displaying the running container on the EC2 instance.*
