@@ -1,0 +1,48 @@
+flowchart TD
+    INTERNET(("Internet"))
+    
+    subgraph AWS["AWS Cloud"]
+        subgraph VPC["VPC"]
+            IGW["Internet Gateway"]
+            RT["Route Table"]
+            
+            subgraph SUBNET["Public Subnet"]
+                SG["Security Group"]
+                subgraph EC2["EC2 Instance"]
+                    subgraph DOCKER["Docker Container"]
+                        APP["Application"]
+                    end
+                end
+            end
+        end
+    end
+    
+    subgraph LOCAL["Local Environment"]
+        TF["Terraform"]
+        DOCKERIMG["Docker Image"]
+    end
+    
+    %% Connections
+    INTERNET <--> IGW
+    IGW <--> RT
+    RT --> SUBNET
+    SG --> EC2
+    
+    %% Provisioning
+    TF -->|Provisions| VPC
+    TF -->|Provisions| IGW
+    TF -->|Provisions| RT
+    TF -->|Provisions| SG
+    TF -->|Provisions| EC2
+    DOCKERIMG -->|Deployed to| EC2
+
+    %% Styling
+    classDef aws fill:#FF9900,stroke:#232F3E,stroke-width:2px
+    classDef container fill:#099CEC,stroke:#232F3E,stroke-width:2px
+    classDef terraform fill:#7B42BC,stroke:#232F3E,stroke-width:2px,color:white
+    classDef network fill:#7AA116,stroke:#232F3E,stroke-width:2px
+    
+    class VPC,EC2,IGW aws
+    class APP,DOCKERIMG container
+    class TF terraform
+    class RT,SG network

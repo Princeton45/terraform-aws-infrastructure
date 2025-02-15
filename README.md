@@ -6,6 +6,9 @@ This project was a fantastic journey into automating the provisioning of AWS inf
 
 I set out to create a system that could automatically spin up a complete AWS environment, ready for application deployment. This included the foundational networking components and a compute instance running a Docker container.
 
+![diagram](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/diagram.png)
+
+
 ## What I Did
 
 1.  **VPC and Networking:** I created the core network, including the VPC, subnets, and routing. I also set up the internet gateway for external access.
