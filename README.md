@@ -12,7 +12,18 @@ I set out to create a system that could automatically spin up a complete AWS env
 ## What I Did
 
 1.  **VPC and Networking:** I created the core network, including the VPC, subnets, and routing. I also set up the internet gateway for external access.
-  *   *Suggestion for a picture: A diagram showing the VPC structure with subnets, route tables, and the Internet Gateway.*
+
+![vpc](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/vpc.png)
+
+![subnet](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/subnet.png)
+
+![igw](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/igw.png)
+
+Additionally, I created a new route table that includes a rule for internet traffic using the Internet Gateway (by default when you create a VPC that isn't the default VPC, it does not create a rule for internet traffic.)
+
+![rtb](https://github.com/Princeton45/terraform-aws-infrastructure/blob/main/images/rtb.png)
+
+
 
 2.  **EC2 Instance:** I configured an EC2 instance, which is the virtual server where applications will run.
   *   *Suggestion for a picture: The AWS console showing the EC2 instance running, perhaps with its public IP and instance type.*
